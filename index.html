@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The F1 Hub — 2026 Season</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="logo-bar"></span>
+    <span>THE <span class="logo-accent">F1</span> HUB</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="teams/mclaren.html">McLaren</a></li>
+    <li><a href="teams/mercedes.html">Mercedes</a></li>
+    <li><a href="teams/redbull.html">Red Bull</a></li>
+    <li><a href="teams/ferrari.html">Ferrari</a></li>
+    <li><a href="teams/williams.html">Williams</a></li>
+    <li><a href="teams/racingbulls.html">Racing Bulls</a></li>
+    <li><a href="teams/astonmartin.html">Aston Martin</a></li>
+    <li><a href="teams/haas.html">Haas</a></li>
+    <li><a href="teams/audi.html">Audi</a></li>
+    <li><a href="teams/alpine.html">Alpine</a></li>
+    <li><a href="teams/cadillac.html">Cadillac</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-lines">
+      <div class="hero-line"></div>
+      <div class="hero-line"></div>
+    </div>
+    <div class="season-badge">2026 SEASON</div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Formula 1 · Official Team Guide</p>
+      <h1 class="hero-title">THE <span class="accent">F1</span> HUB</h1>
+      <p class="hero-subtitle">All 11 Teams · 22 Drivers · New Era</p>
+      <div class="hero-divider"></div>
+      <p class="hero-desc">
+        Your complete guide to the 2026 Formula 1 season — featuring the most radical regulation changes in a decade, two new teams, and all-new power units.
+      </p>
+      <a href="#teams" class="hero-cta">
+        Explore Teams
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- TEAMS GRID -->
+  <section class="teams-section" id="teams">
+    <div class="section-header">
+      <span class="section-label">2026 Grid</span>
+      <h2 class="section-title">ALL TEAMS</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Populated by main.js from teamInfo.json -->
+    <div class="teams-grid" id="teams-grid"></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-logo">THE <span>F1</span> HUB</div>
+  <div class="footer-note">2026 Formula 1 Season · Fan Reference Guide · Not affiliated with Formula 1 or the FIA</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
