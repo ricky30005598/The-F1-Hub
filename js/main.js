@@ -75,6 +75,7 @@ function buildHomePage(data) {
         <div class="tc-inner">
           <div class="tc-idx">${t.index} / ${total}</div>
           <div class="tc-dot"></div>
+          <img class="tc-logo" src="images/${t.logo}" alt="${t.name} logo" onerror="this.style.display='none'" />
           <div class="tc-name">${t.name}</div>
           <div class="tc-engine">${t.powerUnit}</div>
           <div class="tc-drivers">
@@ -110,6 +111,12 @@ function buildTeamPage(data, teamId) {
   // Hero
   setTxt('th-deco-num', team.name.slice(0, 2).toUpperCase());
   setTxt('th-name', team.name);
+  const logoEl = document.getElementById('th-logo');
+  if (logoEl) {
+    logoEl.src = `../images/${team.logo}`;
+    logoEl.alt = `${team.name} logo`;
+    logoEl.onerror = () => logoEl.style.display = 'none';
+  }
   setTxt('meta-fullname', team.fullName);
   setTxt('meta-base', team.base);
   setTxt('meta-tp', team.teamPrincipal);

@@ -53,7 +53,8 @@
       "about": [
         "McLaren enters 2026 as the reigning double World Constructors' Champions, defending their back-to-back titles with an unchanged driver lineup of World Champion Lando Norris and Oscar Piastri.",
         "Under the sweeping 2026 technical regulations — featuring new active aerodynamics and revised hybrid power units — McLaren aims to carry forward the momentum that saw them dominate the latter stages of 2025. Team Principal Andrea Stella has built one of the deepest technical operations in the paddock."
-      ]
+      ],
+      "logo": "mclaren.png"
     },
     {
       "id": "mercedes",
@@ -103,7 +104,8 @@
       "about": [
         "Mercedes enter 2026 with renewed ambition, pairing the experienced George Russell with sophomore sensation Kimi Antonelli — both retained on one-year extensions by team boss Toto Wolff.",
         "As works power unit suppliers to themselves, Alpine, and Williams, Mercedes hold a critical advantage heading into the all-new engine era. The team finished second in the 2025 Constructors' Championship and are widely tipped as title favorites for 2026."
-      ]
+      ],
+      "logo": "mercedes.png"
     },
     {
       "id": "redbull",
@@ -153,7 +155,8 @@
       "about": [
         "Red Bull Racing enter 2026 with a brand-new in-house power unit developed in partnership with Ford — a historic return for the American manufacturer to Formula 1 after more than two decades away.",
         "Four-time World Champion Max Verstappen continues his pursuit of a fifth title, now partnered by Red Bull junior Isack Hadjar following a reshuffle that saw Tsunoda moved to reserve duties. Technical Director Pierre Waché leads an engineering operation that remains among the finest in the sport."
-      ]
+      ],
+      "logo": "redbull.png"
     },
     {
       "id": "ferrari",
@@ -203,7 +206,8 @@
       "about": [
         "Scuderia Ferrari enter 2026 with the most star-studded lineup on the grid: Charles Leclerc entering his fourth year at the Scuderia alongside seven-time World Champion Lewis Hamilton in his second season at Maranello.",
         "After a winless 2025 campaign, Ferrari are banking on the new regulations and their status as a fully integrated works team — building both chassis and power unit in-house at Maranello — to reignite their championship challenge. Customer teams Haas and Cadillac also use Ferrari power units."
-      ]
+      ],
+      "logo": "ferrari.png"
     },
     {
       "id": "williams",
@@ -253,7 +257,8 @@
       "about": [
         "Williams continue their resurgence under Team Principal James Vowles with their retained pairing of Alexander Albon and Carlos Sainz — the duo that helped Williams achieve fifth in the 2025 Constructors' Championship.",
         "The Grove-based team switches to updated Mercedes power for 2026, building on a partnership that began at the start of the turbo-hybrid era in 2014. With Adrian Newey's departure still fresh in rival minds, Vowles is quietly building one of the sport's more impressive technical departments."
-      ]
+      ],
+      "logo": "williams.png"
     },
     {
       "id": "racingbulls",
@@ -303,7 +308,8 @@
       "about": [
         "Racing Bulls enter 2026 with a fresh dynamic: Liam Lawson acts as the experienced head of the team after his stint at Red Bull Racing, while 2026's only true rookie — Red Bull junior Arvid Lindblad — joins from the academy.",
         "Running the same Red Bull Ford power unit as their sister team, Racing Bulls serve as a crucial proving ground for Red Bull's driver pipeline. Under new Team Principal Alan Permane, the Faenza-based outfit aims to build on their occasional points-scoring form from 2025."
-      ]
+      ],
+      "logo": "racingbulls.png"
     },
     {
       "id": "astonmartin",
@@ -353,7 +359,8 @@
       "about": [
         "Aston Martin enter 2026 armed with an exclusive works relationship with Honda Racing Corporation — a coup that makes them one of only four works power unit teams on the grid. The arrival of legendary designer Adrian Newey has generated enormous excitement around Silverstone.",
         "Two-time World Champion Fernando Alonso remains aboard for his fourth Aston Martin season, partnered by Lance Stroll. After a challenging 2025, all eyes are on whether Newey's genius and the Honda power unit can propel Aston Martin toward the front of the field."
-      ]
+      ],
+      "logo": "astonmartin.png"
     },
     {
       "id": "haas",
@@ -403,7 +410,8 @@
       "about": [
         "Haas continue their Ferrari-powered programme in 2026 with a refreshed driver lineup: Esteban Ocon enters his second season with the American team, now joined by British rising star Oliver Bearman.",
         "With an expanded technical partnership with Toyota lending additional engineering support, Team Principal Ayao Komatsu is looking to build on the progress Haas have made in recent seasons and push further into the midfield."
-      ]
+      ],
+      "logo": "haas.png"
     },
     {
       "id": "audi",
@@ -453,7 +461,8 @@
       "about": [
         "2026 marks the official entry of the Audi works team into Formula 1 — making them one of the biggest manufacturer debuts in the sport's modern era. Audi acquired Sauber in 2024 and have spent two years preparing for this moment, bringing their own in-house power unit to the grid.",
         "Former Red Bull Racing chief Jonathan Wheatley joins as Team Principal, bringing a wealth of championship-winning experience. With German veteran Nico Hülkenberg as the senior driver and 2024 F2 champion Gabriel Bortoleto as the exciting newcomer, Audi have a compelling story to tell."
-      ]
+      ],
+      "logo": "audi.png"
     },
     {
       "id": "alpine",
@@ -503,7 +512,8 @@
       "about": [
         "Alpine make one of the most significant technical transitions of any team entering 2026, switching from Renault to Mercedes power units after Renault wound down its Formula 1 engine programme. It marks the end of an era for one of the sport's most storied partnerships.",
         "Executive Advisor Flavio Briatore — who oversaw Benetton's championship success in the 1990s — returns to the helm at Enstone with Pierre Gasly providing senior stability alongside the exciting Franco Colapinto, who earned a permanent seat after his impressive debut campaign."
-      ]
+      ],
+      "logo": "alpine.png"
     },
     {
       "id": "cadillac",
@@ -553,7 +563,8 @@
       "about": [
         "Cadillac makes history in 2026 as Formula 1's 11th team — the first new entrant to the championship since Haas in 2016. Backed by General Motors and operated with operational input from the Andretti organisation, the team represents America's most significant push into F1 since the sport's US fanbase exploded.",
         "Sergio Pérez and Valtteri Bottas — both returning after a year away from the grid — bring enormous combined experience to a project that aims to be genuinely competitive. Ferrari power units provide a solid technical foundation while GM develops its own power unit, targeted for introduction in 2029."
-      ]
+      ],
+      "logo": "cadillac.png"
     }
   ]
 }

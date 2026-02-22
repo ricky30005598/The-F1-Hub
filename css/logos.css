@@ -1,0 +1,30 @@
+/* ─── Team card logo (home page) ─────────────────────────────────────────── */
+.tc-logo {
+  display: block;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin: 8px 0 4px;
+  padding: 8px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover .tc-logo {
+  transform: scale(1.08);
+}
+
+/* ─── Team hero logo (team page) ─────────────────────────────────────────── */
+.th-logo {
+  display: block;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 12px 0 8px;
+  padding: 12px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
