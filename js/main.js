@@ -21,9 +21,10 @@ function buildNav(data) {
   const ul = document.querySelector('.nav-links');
   if (!ul) return;
 
-  const homeHref      = isIndex ? 'index.html'        : '../index.html';
+  const homeHref = (isIndex || isHighlight) ? 'index.html' : '../index.html';
   const hlHref        = (isIndex || isHighlight) ? 'highlights.html' : '../highlights.html';
-  const teamHref      = id => isIndex ? `teams/${id}.html` : `${id}.html`;
+  const inRoot = isIndex || isHighlight;
+  const teamHref = id => inRoot ? `teams/${id}.html` : `${id}.html`;
 
   // Build teams dropdown items
   const teamItems = data.teams.map(t =>
