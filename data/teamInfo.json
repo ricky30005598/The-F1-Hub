@@ -1,4 +1,9 @@
 {
+  "season": {
+    "year": "2026",
+    "tagline": "New Era",
+    "description": "Your complete guide to the 2026 Formula 1 season — featuring the most radical regulation changes in a decade, two new teams, and all-new power units."
+  },
   "teams": [
     {
       "id": "mclaren",
@@ -16,14 +21,34 @@
       "tyres": "Pirelli",
       "hq": "Woking, UK",
       "drivers": [
-        { "number": "1", "name": "Lando Norris", "nationality": "British" },
-        { "number": "81", "name": "Oscar Piastri", "nationality": "Australian" }
+        {
+          "number": "1",
+          "name": "Lando Norris",
+          "nationality": "British"
+        },
+        {
+          "number": "81",
+          "name": "Oscar Piastri",
+          "nationality": "Australian"
+        }
       ],
       "stats": [
-        { "value": "9", "label": "Constructors' Titles" },
-        { "value": "12", "label": "Drivers' Titles" },
-        { "value": "183", "label": "Race Wins" },
-        { "value": "157", "label": "Pole Positions" }
+        {
+          "value": "9",
+          "label": "Constructors' Titles"
+        },
+        {
+          "value": "12",
+          "label": "Drivers' Titles"
+        },
+        {
+          "value": "183",
+          "label": "Race Wins"
+        },
+        {
+          "value": "157",
+          "label": "Pole Positions"
+        }
       ],
       "about": [
         "McLaren enters 2026 as the reigning double World Constructors' Champions, defending their back-to-back titles with an unchanged driver lineup of World Champion Lando Norris and Oscar Piastri.",
@@ -46,14 +71,34 @@
       "tyres": "Pirelli",
       "hq": "Brackley, UK",
       "drivers": [
-        { "number": "63", "name": "George Russell", "nationality": "British" },
-        { "number": "12", "name": "Andrea Kimi Antonelli", "nationality": "Italian" }
+        {
+          "number": "63",
+          "name": "George Russell",
+          "nationality": "British"
+        },
+        {
+          "number": "12",
+          "name": "Andrea Kimi Antonelli",
+          "nationality": "Italian"
+        }
       ],
       "stats": [
-        { "value": "8", "label": "Constructors' Titles" },
-        { "value": "9", "label": "Drivers' Titles" },
-        { "value": "125", "label": "Race Wins" },
-        { "value": "131", "label": "Pole Positions" }
+        {
+          "value": "8",
+          "label": "Constructors' Titles"
+        },
+        {
+          "value": "9",
+          "label": "Drivers' Titles"
+        },
+        {
+          "value": "125",
+          "label": "Race Wins"
+        },
+        {
+          "value": "131",
+          "label": "Pole Positions"
+        }
       ],
       "about": [
         "Mercedes enter 2026 with renewed ambition, pairing the experienced George Russell with sophomore sensation Kimi Antonelli — both retained on one-year extensions by team boss Toto Wolff.",
@@ -76,14 +121,34 @@
       "tyres": "Pirelli",
       "hq": "Milton Keynes, UK",
       "drivers": [
-        { "number": "3", "name": "Max Verstappen", "nationality": "Dutch" },
-        { "number": "6", "name": "Isack Hadjar", "nationality": "French" }
+        {
+          "number": "3",
+          "name": "Max Verstappen",
+          "nationality": "Dutch"
+        },
+        {
+          "number": "6",
+          "name": "Isack Hadjar",
+          "nationality": "French"
+        }
       ],
       "stats": [
-        { "value": "6", "label": "Constructors' Titles" },
-        { "value": "4", "label": "Drivers' Titles (Verstappen)" },
-        { "value": "117", "label": "Race Wins" },
-        { "value": "100", "label": "Pole Positions" }
+        {
+          "value": "6",
+          "label": "Constructors' Titles"
+        },
+        {
+          "value": "4",
+          "label": "Drivers' Titles (Verstappen)"
+        },
+        {
+          "value": "117",
+          "label": "Race Wins"
+        },
+        {
+          "value": "100",
+          "label": "Pole Positions"
+        }
       ],
       "about": [
         "Red Bull Racing enter 2026 with a brand-new in-house power unit developed in partnership with Ford — a historic return for the American manufacturer to Formula 1 after more than two decades away.",
@@ -106,14 +171,34 @@
       "tyres": "Pirelli",
       "hq": "Maranello, Italy",
       "drivers": [
-        { "number": "16", "name": "Charles Leclerc", "nationality": "Monégasque" },
-        { "number": "44", "name": "Lewis Hamilton", "nationality": "British" }
+        {
+          "number": "16",
+          "name": "Charles Leclerc",
+          "nationality": "Monégasque"
+        },
+        {
+          "number": "44",
+          "name": "Lewis Hamilton",
+          "nationality": "British"
+        }
       ],
       "stats": [
-        { "value": "16", "label": "Constructors' Titles" },
-        { "value": "15", "label": "Drivers' Titles" },
-        { "value": "243", "label": "Race Wins" },
-        { "value": "245", "label": "Pole Positions" }
+        {
+          "value": "16",
+          "label": "Constructors' Titles"
+        },
+        {
+          "value": "15",
+          "label": "Drivers' Titles"
+        },
+        {
+          "value": "243",
+          "label": "Race Wins"
+        },
+        {
+          "value": "245",
+          "label": "Pole Positions"
+        }
       ],
       "about": [
         "Scuderia Ferrari enter 2026 with the most star-studded lineup on the grid: Charles Leclerc entering his fourth year at the Scuderia alongside seven-time World Champion Lewis Hamilton in his second season at Maranello.",
@@ -136,14 +221,34 @@
       "tyres": "Pirelli",
       "hq": "Grove, UK",
       "drivers": [
-        { "number": "23", "name": "Alexander Albon", "nationality": "Thai-British" },
-        { "number": "55", "name": "Carlos Sainz", "nationality": "Spanish" }
+        {
+          "number": "23",
+          "name": "Alexander Albon",
+          "nationality": "Thai-British"
+        },
+        {
+          "number": "55",
+          "name": "Carlos Sainz",
+          "nationality": "Spanish"
+        }
       ],
       "stats": [
-        { "value": "7", "label": "Constructors' Titles" },
-        { "value": "7", "label": "Drivers' Titles" },
-        { "value": "114", "label": "Race Wins" },
-        { "value": "128", "label": "Pole Positions" }
+        {
+          "value": "7",
+          "label": "Constructors' Titles"
+        },
+        {
+          "value": "7",
+          "label": "Drivers' Titles"
+        },
+        {
+          "value": "114",
+          "label": "Race Wins"
+        },
+        {
+          "value": "128",
+          "label": "Pole Positions"
+        }
       ],
       "about": [
         "Williams continue their resurgence under Team Principal James Vowles with their retained pairing of Alexander Albon and Carlos Sainz — the duo that helped Williams achieve fifth in the 2025 Constructors' Championship.",
@@ -166,14 +271,34 @@
       "tyres": "Pirelli",
       "hq": "Faenza, Italy",
       "drivers": [
-        { "number": "41", "name": "Arvid Lindblad", "nationality": "British-Swedish" },
-        { "number": "30", "name": "Liam Lawson", "nationality": "New Zealander" }
+        {
+          "number": "41",
+          "name": "Arvid Lindblad",
+          "nationality": "British-Swedish"
+        },
+        {
+          "number": "30",
+          "name": "Liam Lawson",
+          "nationality": "New Zealander"
+        }
       ],
       "stats": [
-        { "value": "0", "label": "Constructors' Titles" },
-        { "value": "1", "label": "Race Wins" },
-        { "value": "1", "label": "Pole Positions" },
-        { "value": "2", "label": "Drivers in 2026" }
+        {
+          "value": "0",
+          "label": "Constructors' Titles"
+        },
+        {
+          "value": "1",
+          "label": "Race Wins"
+        },
+        {
+          "value": "1",
+          "label": "Pole Positions"
+        },
+        {
+          "value": "2",
+          "label": "Drivers in 2026"
+        }
       ],
       "about": [
         "Racing Bulls enter 2026 with a fresh dynamic: Liam Lawson acts as the experienced head of the team after his stint at Red Bull Racing, while 2026's only true rookie — Red Bull junior Arvid Lindblad — joins from the academy.",
@@ -196,14 +321,34 @@
       "tyres": "Pirelli",
       "hq": "Silverstone, UK",
       "drivers": [
-        { "number": "18", "name": "Lance Stroll", "nationality": "Canadian" },
-        { "number": "14", "name": "Fernando Alonso", "nationality": "Spanish" }
+        {
+          "number": "18",
+          "name": "Lance Stroll",
+          "nationality": "Canadian"
+        },
+        {
+          "number": "14",
+          "name": "Fernando Alonso",
+          "nationality": "Spanish"
+        }
       ],
       "stats": [
-        { "value": "0", "label": "Constructors' Titles" },
-        { "value": "2", "label": "Race Podiums (2023)" },
-        { "value": "2", "label": "Pole Positions" },
-        { "value": "2", "label": "Drivers in 2026" }
+        {
+          "value": "0",
+          "label": "Constructors' Titles"
+        },
+        {
+          "value": "2",
+          "label": "Race Podiums (2023)"
+        },
+        {
+          "value": "2",
+          "label": "Pole Positions"
+        },
+        {
+          "value": "2",
+          "label": "Drivers in 2026"
+        }
       ],
       "about": [
         "Aston Martin enter 2026 armed with an exclusive works relationship with Honda Racing Corporation — a coup that makes them one of only four works power unit teams on the grid. The arrival of legendary designer Adrian Newey has generated enormous excitement around Silverstone.",
@@ -226,14 +371,34 @@
       "tyres": "Pirelli",
       "hq": "Kannapolis, USA / Banbury, UK",
       "drivers": [
-        { "number": "31", "name": "Esteban Ocon", "nationality": "French" },
-        { "number": "87", "name": "Oliver Bearman", "nationality": "British" }
+        {
+          "number": "31",
+          "name": "Esteban Ocon",
+          "nationality": "French"
+        },
+        {
+          "number": "87",
+          "name": "Oliver Bearman",
+          "nationality": "British"
+        }
       ],
       "stats": [
-        { "value": "0", "label": "Constructors' Titles" },
-        { "value": "1", "label": "Race Wins" },
-        { "value": "3", "label": "Pole Positions" },
-        { "value": "9", "label": "Years in F1" }
+        {
+          "value": "0",
+          "label": "Constructors' Titles"
+        },
+        {
+          "value": "1",
+          "label": "Race Wins"
+        },
+        {
+          "value": "3",
+          "label": "Pole Positions"
+        },
+        {
+          "value": "9",
+          "label": "Years in F1"
+        }
       ],
       "about": [
         "Haas continue their Ferrari-powered programme in 2026 with a refreshed driver lineup: Esteban Ocon enters his second season with the American team, now joined by British rising star Oliver Bearman.",
@@ -256,14 +421,34 @@
       "tyres": "Pirelli",
       "hq": "Hinwil, Switzerland",
       "drivers": [
-        { "number": "27", "name": "Nico Hülkenberg", "nationality": "German" },
-        { "number": "5", "name": "Gabriel Bortoleto", "nationality": "Brazilian" }
+        {
+          "number": "27",
+          "name": "Nico Hülkenberg",
+          "nationality": "German"
+        },
+        {
+          "number": "5",
+          "name": "Gabriel Bortoleto",
+          "nationality": "Brazilian"
+        }
       ],
       "stats": [
-        { "value": "0", "label": "Titles (as Audi)" },
-        { "value": "1", "label": "Works Power Unit" },
-        { "value": "2026", "label": "Audi Works Entry" },
-        { "value": "4", "label": "Rings Logo" }
+        {
+          "value": "0",
+          "label": "Titles (as Audi)"
+        },
+        {
+          "value": "1",
+          "label": "Works Power Unit"
+        },
+        {
+          "value": "2026",
+          "label": "Audi Works Entry"
+        },
+        {
+          "value": "4",
+          "label": "Rings Logo"
+        }
       ],
       "about": [
         "2026 marks the official entry of the Audi works team into Formula 1 — making them one of the biggest manufacturer debuts in the sport's modern era. Audi acquired Sauber in 2024 and have spent two years preparing for this moment, bringing their own in-house power unit to the grid.",
@@ -286,14 +471,34 @@
       "tyres": "Pirelli",
       "hq": "Enstone, UK",
       "drivers": [
-        { "number": "10", "name": "Pierre Gasly", "nationality": "French" },
-        { "number": "43", "name": "Franco Colapinto", "nationality": "Argentine" }
+        {
+          "number": "10",
+          "name": "Pierre Gasly",
+          "nationality": "French"
+        },
+        {
+          "number": "43",
+          "name": "Franco Colapinto",
+          "nationality": "Argentine"
+        }
       ],
       "stats": [
-        { "value": "2", "label": "Constructors' Titles" },
-        { "value": "3", "label": "Drivers' Titles" },
-        { "value": "35", "label": "Race Wins" },
-        { "value": "50", "label": "Pole Positions" }
+        {
+          "value": "2",
+          "label": "Constructors' Titles"
+        },
+        {
+          "value": "3",
+          "label": "Drivers' Titles"
+        },
+        {
+          "value": "35",
+          "label": "Race Wins"
+        },
+        {
+          "value": "50",
+          "label": "Pole Positions"
+        }
       ],
       "about": [
         "Alpine make one of the most significant technical transitions of any team entering 2026, switching from Renault to Mercedes power units after Renault wound down its Formula 1 engine programme. It marks the end of an era for one of the sport's most storied partnerships.",
@@ -316,14 +521,34 @@
       "tyres": "Pirelli",
       "hq": "Concord, USA",
       "drivers": [
-        { "number": "11", "name": "Sergio Pérez", "nationality": "Mexican" },
-        { "number": "77", "name": "Valtteri Bottas", "nationality": "Finnish" }
+        {
+          "number": "11",
+          "name": "Sergio Pérez",
+          "nationality": "Mexican"
+        },
+        {
+          "number": "77",
+          "name": "Valtteri Bottas",
+          "nationality": "Finnish"
+        }
       ],
       "stats": [
-        { "value": "2026", "label": "F1 Debut" },
-        { "value": "11th", "label": "Team on the Grid" },
-        { "value": "2", "label": "Experienced Drivers" },
-        { "value": "2029", "label": "Own Engine Target" }
+        {
+          "value": "2026",
+          "label": "F1 Debut"
+        },
+        {
+          "value": "11th",
+          "label": "Team on the Grid"
+        },
+        {
+          "value": "2",
+          "label": "Experienced Drivers"
+        },
+        {
+          "value": "2029",
+          "label": "Own Engine Target"
+        }
       ],
       "about": [
         "Cadillac makes history in 2026 as Formula 1's 11th team — the first new entrant to the championship since Haas in 2016. Backed by General Motors and operated with operational input from the Andretti organisation, the team represents America's most significant push into F1 since the sport's US fanbase exploded.",

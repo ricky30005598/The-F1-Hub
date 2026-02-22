@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Team — The F1 Hub 2026</title>
+  <title>Team — The F1 Hub</title>
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
@@ -14,18 +14,7 @@
     <span>THE <span class="logo-accent">F1</span> HUB</span>
   </a>
   <ul class="nav-links">
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="mclaren.html">McLaren</a></li>
-    <li><a href="mercedes.html">Mercedes</a></li>
-    <li><a href="redbull.html">Red Bull</a></li>
-    <li><a href="ferrari.html">Ferrari</a></li>
-    <li><a href="williams.html">Williams</a></li>
-    <li><a href="racingbulls.html">Racing Bulls</a></li>
-    <li><a href="astonmartin.html">Aston Martin</a></li>
-    <li><a href="haas.html">Haas</a></li>
-    <li><a href="audi.html">Audi</a></li>
-    <li><a href="alpine.html">Alpine</a></li>
-    <li><a href="cadillac.html">Cadillac</a></li>
+    <!-- Populated by main.js from teamInfo.json -->
   </ul>
   <button class="nav-hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -51,7 +40,7 @@
     <div class="th-deco-num" id="th-deco-num"></div>
 
     <div class="th-content">
-      <p class="th-eyebrow">2026 Formula 1 Season</p>
+      <p class="th-eyebrow" id="th-eyebrow"></p>
       <div class="th-bar"></div>
       <h1 class="th-name" id="th-name"></h1>
       <div class="th-meta">
@@ -80,7 +69,7 @@
 
       <!-- Drivers -->
       <div class="tc-block tc-full">
-        <div class="tc-title">Drivers · 2026</div>
+        <div class="tc-title" id="drivers-title"></div>
         <div class="drivers-duo" id="drivers-duo"></div>
       </div>
 
@@ -109,7 +98,7 @@
 
 <footer>
   <div class="footer-logo">THE <span>F1</span> HUB</div>
-  <div class="footer-note">2026 Formula 1 Season · Fan Reference Guide · Not affiliated with Formula 1 or the FIA</div>
+  <div class="footer-note" id="footer-note">Formula 1 Season · Fan Reference Guide · Not affiliated with Formula 1 or the FIA</div>
 </footer>
 
 <script src="../js/main.js"></script>
