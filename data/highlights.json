@@ -11,11 +11,38 @@
       "date": "March 15, 2026"
     },
     "standings": [
-      { "pos": "1", "driver": "Lando Norris", "team": "McLaren", "points": "25" },
-      { "pos": "2", "driver": "Max Verstappen", "team": "Red Bull Racing", "points": "18" },
-      { "pos": "3", "driver": "Charles Leclerc", "team": "Ferrari", "points": "15" },
-      { "pos": "4", "driver": "Oscar Piastri", "team": "McLaren", "points": "12" },
-      { "pos": "5", "driver": "George Russell", "team": "Mercedes", "points": "10" }
+      {
+        "pos": "1",
+        "driver": "Lando Norris",
+        "team": "McLaren",
+        "points": "25"
+      },
+      {
+        "pos": "2",
+        "driver": "Max Verstappen",
+        "team": "Red Bull Racing",
+        "points": "18"
+      },
+      {
+        "pos": "3",
+        "driver": "Charles Leclerc",
+        "team": "Ferrari",
+        "points": "15"
+      },
+      {
+        "pos": "4",
+        "driver": "Oscar Piastri",
+        "team": "McLaren",
+        "points": "12"
+      },
+      {
+        "pos": "5",
+        "driver": "George Russell",
+        "team": "Mercedes",
+        "points": "10"
+      }
     ]
-  }
+  },
+  "season_active": false,
+  "offseason_message": "The 2026 Formula 1 season has not yet started. Check again soon!"
 }

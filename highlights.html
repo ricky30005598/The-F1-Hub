@@ -152,7 +152,14 @@
     <p class="hl-desc" id="hl-desc"></p>
   </section>
 
-  <div class="hl-body">
+  <!-- Off-season message (shown when season_active = false in highlights.json) -->
+  <div id="hl-offseason" style="display:none; text-align:center; padding: 80px 24px;">
+    <div style="font-size: 48px; margin-bottom: 24px;">🏁</div>
+    <h2 style="color:#fff; font-size:1.8rem; text-transform:uppercase; letter-spacing:2px; margin-bottom:16px;">Off Season</h2>
+    <p class="hl-offseason-msg" style="color:#888; font-size:1rem; max-width:500px; margin:0 auto; line-height:1.7;"></p>
+  </div>
+
+  <div id="hl-content" class="hl-body">
 
     <!-- Video -->
     <div class="hl-video-wrap">
@@ -183,6 +190,7 @@
     </div>
   </div>
 
+  </div><!-- end hl-content -->
 </main>
 
 <footer>
@@ -192,10 +200,22 @@
 
 <script src="js/main.js"></script>
 <script>
-  // Load highlights.json separately
   fetch('data/highlights.json')
     .then(r => r.json())
     .then(data => {
+      const active  = data.season_active;
+      const content = document.getElementById('hl-content');
+      const offMsg  = document.getElementById('hl-offseason');
+
+      if (!active) {
+        // Off-season mode
+        content.style.display  = 'none';
+        offMsg.style.display   = 'block';
+        offMsg.querySelector('.hl-offseason-msg').textContent = data.offseason_message;
+        document.getElementById('hl-desc').textContent = 'Season not currently active.';
+        return;
+      }
+
       const h = data.highlight;
       const r = h.race;
 
