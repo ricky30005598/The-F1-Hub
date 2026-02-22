@@ -2,76 +2,40 @@
 const page        = location.pathname.split('/').pop() || 'index.html';
 const isIndex     = page === 'index.html' || page === '';
 const isHighlight = page === 'highlights.html';
-const inTeamsDir  = location.pathname.includes('/teams/');
-const isTeam      = inTeamsDir && page.endsWith('.html');
-const jsonPath    = (isIndex || isHighlight) ? 'data/teamInfo.json' : '../data/teamInfo.json';
+const isTeam      = !isIndex && !isHighlight && page.endsWith('.html');
+const inRoot      = isIndex || isHighlight;
+const jsonPath    = inRoot ? 'data/teamInfo.json' : '../data/teamInfo.json';
 
 // ─── Fetch JSON then route ────────────────────────────────────────────────────
 fetch(jsonPath)
   .then(r => r.json())
   .then(data => {
     buildNav(data);
-    if (isIndex) buildHomePage(data);
-    if (isTeam)  buildTeamPage(data, page.replace('.html', ''));
+    if (isIndex)     buildHomePage(data);
+    if (isTeam)      buildTeamPage(data, page.replace('.html', ''));
   })
   .catch(err => console.error('Could not load teamInfo.json:', err));
 
-// ─── NAV: built dynamically for every page ───────────────────────────────────
+// ─── NAV: flat list of all teams ─────────────────────────────────────────────
 function buildNav(data) {
   const ul = document.querySelector('.nav-links');
   if (!ul) return;
 
-  const inRoot   = isIndex || isHighlight;
   const homeHref = inRoot ? 'index.html'      : '../index.html';
   const hlHref   = inRoot ? 'highlights.html' : '../highlights.html';
   const teamHref = id => inRoot ? `teams/${id}.html` : `${id}.html`;
 
-  const teamLinks = data.teams.map(t =>
-    `<li class="desktop-team-link"><a href="${teamHref(t.id)}">${t.name}</a></li>`
-  ).join('');
-
-  const mobileTeamItems = data.teams.map(t =>
-    `<li><a href="${teamHref(t.id)}">${t.name}</a></li>`
-  ).join('');
-
-  ul.innerHTML = `
-    <li><a href="${homeHref}">Home</a></li>
-
-    <!-- Desktop: individual team links shown inline -->
-    ${teamLinks}
-
-    <!-- Mobile only: Teams dropdown inside hamburger menu -->
-    <li class="mobile-dropdown">
-      <button class="nav-dropdown-btn">
-        Teams
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-          <path d="M6 9l6 6 6-6"/>
-        </svg>
-      </button>
-      <ul class="nav-dropdown-menu">
-        ${mobileTeamItems}
-      </ul>
-    </li>
-
-    <li><a href="${hlHref}">Highlights</a></li>
-  `;
+  ul.innerHTML = `<li><a href="${homeHref}">Home</a></li>` +
+    data.teams.map(t =>
+      `<li><a href="${teamHref(t.id)}">${t.name}</a></li>`
+    ).join('') +
+    `<li><a href="${hlHref}">Highlights</a></li>`;
 
   // Highlight active link
   ul.querySelectorAll('a').forEach(a => {
     if (a.getAttribute('href').split('/').pop() === page)
       a.classList.add('active');
   });
-
-  // Mobile dropdown toggle
-  const dropBtn  = ul.querySelector('.nav-dropdown-btn');
-  const dropMenu = ul.querySelector('.nav-dropdown-menu');
-  if (dropBtn && dropMenu) {
-    dropBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      dropMenu.classList.toggle('open');
-      dropBtn.classList.toggle('open');
-    });
-  }
 
   // Mobile hamburger toggle
   const hamburger = document.querySelector('.nav-hamburger');
@@ -90,21 +54,13 @@ function buildHomePage(data) {
   const total = teams.length;
   const drivers = teams.reduce((n, t) => n + t.drivers.length, 0);
 
-  // Season badge
   setTxt('season-badge', `${s.year} SEASON`);
-
-  // Hero text
   setTxt('hero-subtitle', `All ${total} Teams · ${drivers} Drivers · ${s.tagline}`);
   setTxt('hero-desc', s.description);
-
-  // Page title & footer
   document.title = `The F1 Hub — ${s.year} Season`;
   updateFooter(s.year);
-
-  // Section title
   setTxt('section-year', s.year);
 
-  // Team grid
   const grid = document.getElementById('teams-grid');
   if (grid) {
     grid.innerHTML = teams.map(t => `
@@ -138,32 +94,25 @@ function buildTeamPage(data, teamId) {
   if (!team) return;
   const year = data.season.year;
 
-  // Team color
   document.documentElement.style.setProperty('--team-color', team.color);
-
-  // Page title & eyebrow
   document.title = `${team.name} — The F1 Hub ${year}`;
   updateFooter(year);
   setTxt('th-eyebrow', `${year} Formula 1 Season`);
-
-  // Hero
   setTxt('th-deco-num', team.name.slice(0, 2).toUpperCase());
   setTxt('th-name', team.name);
+  setTxt('meta-fullname', team.fullName);
+  setTxt('meta-base', team.base);
+  setTxt('meta-tp', team.teamPrincipal);
+  setTxt('meta-pu', team.powerUnit);
+  setTxt('drivers-title', `Drivers · ${year}`);
+
   const logoEl = document.getElementById('th-logo');
   if (logoEl) {
     logoEl.src = `../images/${team.logo}`;
     logoEl.alt = `${team.name} logo`;
     logoEl.onerror = () => logoEl.style.display = 'none';
   }
-  setTxt('meta-fullname', team.fullName);
-  setTxt('meta-base', team.base);
-  setTxt('meta-tp', team.teamPrincipal);
-  setTxt('meta-pu', team.powerUnit);
 
-  // Drivers section title
-  setTxt('drivers-title', `Drivers · ${year}`);
-
-  // Drivers
   const driversEl = document.getElementById('drivers-duo');
   if (driversEl) {
     driversEl.innerHTML = team.drivers.map(d => `
@@ -176,7 +125,6 @@ function buildTeamPage(data, teamId) {
     `).join('');
   }
 
-  // Tech specs
   const specsEl = document.getElementById('tech-specs');
   if (specsEl) {
     specsEl.innerHTML = [
@@ -194,7 +142,6 @@ function buildTeamPage(data, teamId) {
     `).join('');
   }
 
-  // Stats
   const statsEl = document.getElementById('stats-band');
   if (statsEl) {
     statsEl.innerHTML = team.stats.map(s => `
@@ -205,21 +152,18 @@ function buildTeamPage(data, teamId) {
     `).join('');
   }
 
-  // About
   const aboutEl = document.getElementById('about-txt');
   if (aboutEl) {
     aboutEl.innerHTML = team.about.map(p => `<p>${p}</p>`).join('');
   }
 }
 
-// ─── Helper ──────────────────────────────────────────────────────────────────
+// ─── Helpers ─────────────────────────────────────────────────────────────────
 function setTxt(id, html) {
   const el = document.getElementById(id);
   if (el) el.innerHTML = html;
 }
 
-// ─── Footer: update year dynamically ─────────────────────────────────────────
-// (called after fetch resolves, year injected via buildHomePage/buildTeamPage)
 function updateFooter(year) {
   const el = document.getElementById('footer-note');
   if (el) el.innerHTML = `${year} Formula 1 Season · Fan Reference Guide · Not affiliated with Formula 1 or the FIA`;
