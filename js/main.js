@@ -1,291 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Race Leaderboard — The F1 Hub</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/logos.css" />
-  <style>
-    /* ── Page hero ── */
-    .lb-hero {
-      background: #0a0a0a;
-      padding: 48px 24px 32px;
-      text-align: center;
-      border-bottom: 2px solid #e10600;
-    }
-    .lb-eyebrow {
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #888;
-      margin-bottom: 8px;
-    }
-    .lb-title {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 900;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 6px;
-    }
-    .lb-title span { color: #e10600; }
-    .lb-subtitle {
-      color: #666;
-      font-size: 0.88rem;
-      letter-spacing: 1px;
-    }
+// ─── Detect which page we're on ──────────────────────────────────────────────
+const page        = location.pathname.split('/').pop() || 'index.html';
+const isIndex     = page === 'index.html' || page === '';
+const isHighlight = page === 'highlights.html';
+const isTeam      = !isIndex && !isHighlight && page.endsWith('.html');
+const inRoot      = isIndex || isHighlight;
+const jsonPath    = inRoot ? 'data/teamInfo.json' : '../data/teamInfo.json';
 
-    /* ── Body ── */
-    .lb-body {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
+// ─── Fetch JSON then route ────────────────────────────────────────────────────
+fetch(jsonPath)
+  .then(r => r.json())
+  .then(data => {
+    buildNav(data);
+    if (isIndex)     buildHomePage(data);
+    if (isTeam)      buildTeamPage(data, page.replace('.html', ''));
+  })
+  .catch(err => console.error('Could not load teamInfo.json:', err));
 
-    /* ── Fastest lap box ── */
-    .fl-box {
-      background: #111;
-      border: 1px solid #2a2a2a;
-      border-left: 4px solid #9b59b6;
-      border-radius: 12px;
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .fl-left { display: flex; align-items: center; gap: 16px; }
-    .fl-icon { font-size: 1.6rem; }
-    .fl-label {
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #9b59b6;
-      margin-bottom: 4px;
-    }
-    .fl-name { font-size: 1.1rem; font-weight: 800; color: #fff; }
-    .fl-detail { font-size: 0.82rem; color: #888; margin-top: 2px; }
-    .fl-right { text-align: right; }
-    .fl-time {
-      font-size: 1.4rem;
-      font-weight: 900;
-      color: #9b59b6;
-      font-family: monospace;
-      letter-spacing: 1px;
-    }
-    .fl-pos { font-size: 0.78rem; color: #666; margin-top: 2px; }
-    .fl-logo {
-      width: 36px;
-      height: 36px;
-      object-fit: contain;
-      background: #fff;
-      border-radius: 6px;
-      padding: 4px;
-    }
+// ─── NAV: flat list of all teams ─────────────────────────────────────────────
+function buildNav(data) {
+  const ul = document.querySelector('.nav-links');
+  if (!ul) return;
 
-    /* ── Leaderboard table ── */
-    .lb-table {
-      background: #111;
-      border: 1px solid #1e1e1e;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .lb-row {
-      display: grid;
-      grid-template-columns: 40px 1fr auto auto;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 20px;
-      border-bottom: 1px solid #1a1a1a;
-      transition: background 0.15s;
-    }
-    .lb-row:last-child { border-bottom: none; }
-    .lb-row:hover { background: #161616; }
+  const homeHref = inRoot ? 'index.html'      : '../index.html';
+  const hlHref   = inRoot ? 'highlights.html' : '../highlights.html';
+  const teamHref = id => inRoot ? `teams/${id}.html` : `${id}.html`;
 
-    /* Position medals */
-    .lb-pos {
-      font-size: 1rem;
-      font-weight: 900;
-      text-align: center;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-    }
-    .lb-pos.p1 { background: #FFD700; color: #000; }
-    .lb-pos.p2 { background: #C0C0C0; color: #000; }
-    .lb-pos.p3 { background: #CD7F32; color: #000; }
-    .lb-pos.other { color: #666; font-size: 0.9rem; }
+  ul.innerHTML = `<li><a href="${homeHref}">Home</a></li>` +
+    data.teams.map(t =>
+      `<li><a href="${teamHref(t.id)}">${t.name}</a></li>`
+    ).join('') +
+    `<li><a href="${hlHref}">Highlights</a></li>`;
 
-    /* Driver info */
-    .lb-driver { display: flex; align-items: center; gap: 12px; }
-    .lb-driver-logo {
-      width: 32px;
-      height: 32px;
-      object-fit: contain;
-      background: #fff;
-      border-radius: 6px;
-      padding: 3px;
-      flex-shrink: 0;
-    }
-    .lb-driver-name { font-size: 0.95rem; font-weight: 700; color: #eee; }
-    .lb-driver-abbr { color: #555; font-size: 0.78rem; margin-top: 1px; }
+  // Highlight active link
+  ul.querySelectorAll('a').forEach(a => {
+    if (a.getAttribute('href').split('/').pop() === page)
+      a.classList.add('active');
+  });
 
-    /* Points */
-    .lb-points {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      justify-content: flex-end;
-    }
-    .lb-pts-num {
-      font-size: 1.1rem;
-      font-weight: 900;
-      color: #fff;
-      min-width: 28px;
-      text-align: right;
-    }
-    .lb-fl-badge {
-      background: #9b59b6;
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 800;
-      padding: 2px 6px;
-      border-radius: 4px;
-      white-space: nowrap;
-    }
-  </style>
-</head>
-<body>
+  // Mobile hamburger toggle
+  const hamburger = document.querySelector('.nav-hamburger');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => ul.classList.toggle('open'));
+    ul.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => ul.classList.remove('open'))
+    );
+  }
+}
 
-<nav>
-  <a href="index.html" class="nav-logo">
-    <span class="logo-bar"></span>
-    <span>THE <span class="logo-accent">F1</span> HUB</span>
-  </a>
-  <ul class="nav-links">
-    <!-- Populated by main.js -->
-  </ul>
-  <button class="nav-hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+// ─── HOME PAGE ────────────────────────────────────────────────────────────────
+function buildHomePage(data) {
+  const s = data.season;
+  const teams = data.teams;
+  const total = teams.length;
+  const drivers = teams.reduce((n, t) => n + t.drivers.length, 0);
 
-<main>
+  setTxt('season-badge', `${s.year} SEASON`);
+  setTxt('hero-subtitle', `All ${total} Teams · ${drivers} Drivers · ${s.tagline}`);
+  setTxt('hero-desc', s.description);
+  document.title = `The F1 Hub — ${s.year} Season`;
+  updateFooter(s.year);
+  setTxt('section-year', s.year);
 
-  <div class="back-bar">
-    <a href="index.html" class="back-link">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <path d="M19 12H5M12 19l-7-7 7-7"/>
-      </svg>
-      Home
-    </a>
-  </div>
-
-  <section class="lb-hero">
-    <p class="lb-eyebrow">Formula 1 · <span id="lb-season-year"></span></p>
-    <h1 class="lb-title">RACE <span>LEADERBOARD</span></h1>
-    <p class="lb-subtitle" id="lb-race-info"></p>
-  </section>
-
-  <div class="lb-body">
-
-    <!-- Fastest Lap Box -->
-    <div class="fl-box" id="fl-box">
-      <div class="fl-left">
-        <div class="fl-icon">⚡</div>
-        <img class="fl-logo" id="fl-logo" src="" alt="" />
-        <div>
-          <div class="fl-label">Fastest Lap</div>
-          <div class="fl-name" id="fl-name"></div>
-          <div class="fl-detail" id="fl-detail"></div>
-        </div>
-      </div>
-      <div class="fl-right">
-        <div class="fl-time" id="fl-time"></div>
-        <div class="fl-pos" id="fl-pos"></div>
-      </div>
-    </div>
-
-    <!-- Leaderboard -->
-    <div class="lb-table" id="lb-table"></div>
-
-  </div>
-
-</main>
-
-<footer>
-  <div class="footer-logo">THE <span>F1</span> HUB</div>
-  <div class="footer-note" id="footer-note">Formula 1 Season · Fan Reference Guide · Not affiliated with Formula 1 or the FIA</div>
-</footer>
-
-<script src="js/main.js"></script>
-<script>
-  fetch('data/leaderboard.json')
-    .then(r => r.json())
-    .then(data => {
-      const fl = data.fastestLap;
-      const lb = data.leaderboard;
-      const race = data.race;
-
-      // Race info in hero
-      document.getElementById('lb-race-info').textContent =
-        `${race.name} · ${race.round} · ${race.date}`;
-
-      // Fastest lap box
-      document.getElementById('fl-name').textContent =
-        `${fl.firstName} ${fl.lastName}`;
-      document.getElementById('fl-time').textContent = fl.time;
-      document.getElementById('fl-pos').textContent =
-        `P${fl.position} · +1 pt bonus`;
-      document.getElementById('fl-detail').textContent =
-        lb.find(d => d.team === fl.team)
-          ? 'Qualifies for +1 point'
-          : 'Outside top 10 — no bonus point';
-
-      const flLogo = document.getElementById('fl-logo');
-      flLogo.src = `images/${fl.team}.png`;
-      flLogo.alt = fl.team;
-      flLogo.onerror = () => flLogo.style.display = 'none';
-
-      // Leaderboard rows
-      document.getElementById('lb-table').innerHTML = lb.map(d => {
-        const abbr = `${d.firstName[0]}. ${d.lastName}`;
-        const posClass = d.pos === 1 ? 'p1' : d.pos === 2 ? 'p2' : d.pos === 3 ? 'p3' : 'other';
-        const totalPts = d.fastestLap ? d.points + 1 : d.points;
-        const flBadge = d.fastestLap
-          ? `<span class="lb-fl-badge">+1 ⚡</span>` : '';
-
-        return `
-          <div class="lb-row">
-            <div class="lb-pos ${posClass}">${d.pos}</div>
-            <div class="lb-driver">
-              <img class="lb-driver-logo"
-                src="images/${d.team}.png"
-                alt="${d.team}"
-                onerror="this.style.display='none'" />
-              <div>
-                <div class="lb-driver-name">${abbr}</div>
-                <div class="lb-driver-abbr">${d.team.toUpperCase()}</div>
-              </div>
-            </div>
-            <div></div>
-            <div class="lb-points">
-              ${flBadge}
-              <span class="lb-pts-num">${totalPts}</span>
-            </div>
+  const grid = document.getElementById('teams-grid');
+  if (grid) {
+    grid.innerHTML = teams.map(t => `
+      <a href="teams/${t.id}.html" class="team-card" style="--team-color:${t.color}">
+        <div class="tc-top-bar"></div>
+        <div class="tc-inner">
+          <div class="tc-idx">${t.index} / ${total}</div>
+          <div class="tc-dot"></div>
+          <img class="tc-logo" src="images/${t.logo}" alt="${t.name} logo" onerror="this.style.display='none'" />
+          <div class="tc-name">${t.name}</div>
+          <div class="tc-engine">${t.powerUnit}</div>
+          <div class="tc-drivers">
+            ${t.drivers.map(d =>
+              `<div class="tc-driver"><span class="dn">${d.number}</span> ${d.name}</div>`
+            ).join('')}
           </div>
-        `;
-      }).join('');
-    })
-    .catch(err => console.error('Could not load leaderboard.json:', err));
-</script>
-</body>
-</html>
+          <div class="tc-arrow">View Team
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
